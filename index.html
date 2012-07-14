@@ -2,61 +2,50 @@
 <html>
 	<head>
 		<meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width" />
-		<title>Training App</title>
-		<link rel="stylesheet" href="assets/css/master.css" type="text/css" media="screen" />
+		<title>Imgurer</title>
+		<link rel="stylesheet" href="assets/css/kendo.mobile.all.min.css">
 		
+		<script type="text/javascript" src="assets/js/jquery.min.js"></script>
 		<script src="phonegap.js" type="text/javascript" charset="utf-8"></script>
-		
-		<script src="assets/js/xui.js" type="text/javascript" charset="utf-8"></script>
-		
-		<script src="assets/js/lawnchair/adaptors/LawnchairAdaptorHelpers.js" type="text/javascript" charset="utf-8"></script>
-		
-		<script src="assets/js/lawnchair/adaptors/DOMStorageAdaptor.js" type="text/javascript" charset="utf-8"></script>
-		
-		<script src="assets/js/lawnchair/adaptors/WebkitSQLiteAdaptor.js" type="text/javascript" charset="utf-8"></script>
-		
-		<script src="assets/js/lawnchair/Lawnchair.js" type="text/javascript" charset="utf-8"></script>
-		
-		<script src="assets/js/dsl.js" type="text/javascript" charset="utf-8"></script>
-		
-		<script src="assets/js/app.js" type="text/javascript" charset="utf-8"></script>
-		
+		<script type="text/javascript" src="assets/js/app.js"></script>
+		<script type="text/javascript" src="assets/js/kendo.mobile.min.js"></script>
+
 	</head>
 	<body>
- 		<div id="title_bar">Phone<strong>Gap</strong> Training App</div>
-
-		<div id="welcome" class="view">
-		  <div class="app_button" id="map_button">Show My Location</div>
-  	      <div class="app_button" id="settings_button">Settings</div>
+ 		
+		<div data-role="view" data-layout="main-layout" id="capture" data-title="Take Picture">
+			<div data-role="modalview" id="imgur-key-request">
+				<h2>Welcome!</h2> 
+				<p>Before you can use Imgurer, you need to input
+				your Imgur API key.  <a href="https://imgur.com/register/api_anon">Don't have one?</a></p>
+				<ul data-role="listview" data-style="inset">
+					<li>
+						<input type="text" placeholder="key" />
+						Imgur API Key
+					</li>
+				</ul>
+				<p>
+					<a data-role="button">Save</a>
+				</p>
+			</div>
 		</div>
 
-		<div id="map" class="view">
-		  <div class="map_image">
-              <img id="static_map" src="assets/img/staticmap.png">
-		  </div>
-		  <p>This is where you are</p>
-		  <div class="app_button" id="welcome_button">Go Back</div>
+		<div data-role="view" data-layout="main-layout" id="images" data-title="Uploaded Images">
+			Uploaded images are listed here
 		</div>
 
-		<div id="settings" class="view">
-		  <form id="settings_form">
-		    <fieldset>
-		      <legend>Map Type</legend>
-			  <input type="radio" name="map" value="roadmap" checked>Road Map<br/>
-		      <input type="radio" name="map" value="satellite">Satellite<br/>
-		      <input type="radio" name="map" value="terrain">Terrain<br/>
-		      <input type="radio" name="map" value="hybrid">Hybrid<br/>
-		    </fieldset>
-		    <fieldset>
-		      <legend>Zoom Level</legend>
-  		      <input type="radio" name="zoom" value="10">Super Far<br/>
-  		      <input type="radio" name="zoom" value="12">Far<br/>
-  		      <input type="radio" name="zoom" value="15" checked>Normal<br/>
-  		      <input type="radio" name="zoom" value="18">Close<br/>
-  		      <input type="radio" name="zoom" value="20">Super Close<br/>
-  		     </fieldset>
-		      <button id="save_button">Save</button>
-	      </form>
+		<div data-role="layout" data-id="main-layout">
+			<div data-role="header">
+				<div data-role="navbar">
+					<span data-role="view-title">Select Something!</span>
+				</div>
+			</div>
+			<div data-role="footer">
+				<div data-role="tabstrip">
+					<a data-icon="camera" href="#capture"></a>
+					<a data-icon="settings" href="images"></a>
+				</div>
+			</div>
 		</div>
 
 	</body>
